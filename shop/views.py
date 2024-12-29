@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, Http404
+# from django.http import HttpResponse, Http404
 from .models import Courses
 # Create your views here.
 # Views - виды -  это контроллеры в паттерне MVC, связывают видимую часть приложения с моделями.
