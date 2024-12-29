@@ -15,6 +15,8 @@ api.register(CategoryResource())
 # Key: Authorization
 # Value: ApiKey danil:qwerty2002
 
+
+app_name = 'api'
 urlpatterns = [
     path('', include(api.urls), name='index')
 ]
