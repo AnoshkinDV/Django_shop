@@ -1,6 +1,10 @@
 from tastypie.resources import ModelResource
 from shop.models import Category, Courses
 # Create your models here.
+from tastypie.authorization import Authorization
+from .authentication import CustomAuthentication
+
+
 
 class CategoryResource(ModelResource):
     class Meta: #Собственный атрибут класса CategoryResource 
@@ -10,7 +14,11 @@ class CategoryResource(ModelResource):
 
 
 class CourseResource(ModelResource):
+    #Изменим этот класс
     class Meta:
         queryset = Courses.objects.all()
         resource_name = 'courses'
         allowed_methods = ['get','post','delete'] # Разрешим пользователям создавать новые курсы и удалять
+        #Включили авторизацию и аутентификацию для ресурса CourseResource
+        authentication = CustomAuthentication()
+        authorization = Authorization()
