@@ -1,0 +1,24 @@
+
+{% extends "base.html" %} 
+
+{% block title %}{{ course.title }}{% endblock %}
+
+{% block my-content %}
+<div class="card mt-5" style="width: 18rem;">
+    <div class="card-header">
+        {{ course.title }}
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Category:</strong> {{ course.category }}</li>
+        <li class="list-group-item"><strong>Price:</strong> ${{ course.price }}</li>
+        <li class="list-group-item"><strong>Students Quantity:</strong> {{ course.students_qt }}</li>
+        {% if course.reviews_qt %}
+        <li class="list-group-item"><strong>Reviews Quantity:</strong> {{ course.reviews_qt }}</li>
+        {% endif %}
+    </ul>
+    <div class="card-body text-center">
+        <button class="btn btn-primary">Buy</button>
+    </div>
+</div>
+{% endblock %}
+
