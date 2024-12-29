@@ -22,3 +22,11 @@ class CourseResource(ModelResource):
         #Включили авторизацию и аутентификацию для ресурса CourseResource
         authentication = CustomAuthentication()
         authorization = Authorization()
+    #Hydrate преобразует входные данные в формат, подходящий для сохранения в базе данных.
+    def hydrate(self, bundle): #Эта функция позволяет вставить в объект category_id
+        bundle.obj.category_id = bundle.data['category_id']
+        return bundle
+    #Dehydrate преобразует данные объекта модели в формат, удобный для отправки клиенту.
+    def dehydrate(self, bundle):
+        bundle.data['category_id'] = bundle.obj.category
+        return bundle
