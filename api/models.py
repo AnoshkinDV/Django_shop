@@ -13,5 +13,4 @@ class CourseResource(ModelResource):
     class Meta:
         queryset = Courses.objects.all()
         resource_name = 'courses'
-        allowed_methods = ['get','post','delete'] # Разрещим пользователям создавать новые курсы и удалять
-        
+        allowed_methods = ['get','post','delete'] # Разрешим пользователям создавать новые курсы и удалять
